@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Complete the Word - Interactive educational English vocabulary games for beginners. Learn through fun quizzes, word completion, and guessing games.">
+  <title>Complete the Word | Learn English with Fun Vocabulary Games</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="site-header" id="top">
+    <div class="header-container">
+      <a href="#home" class="logo" id="nav-logo" aria-label="Complete the Word Home">
+        <div class="logo-icon" aria-hidden="true">
+          <span class="logo-letter">W</span>
+          <span class="logo-dot"></span>
+        </div>
+        <div class="logo-text">
+          <span class="logo-title">Complete<span class="logo-accent">TheWord</span></span>
+          <span class="logo-tagline">English Vocabulary Fun</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><button type="button" class="nav-btn active" data-nav="home">Home</button></li>
+          <li><button type="button" class="nav-btn" data-nav="games">Games</button></li>
+          <li><button type="button" class="nav-btn" data-nav="how-it-works">How It Works</button></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Audio effects toggle -->
+        <button type="button" id="audio-toggle" class="icon-toggle-btn" aria-label="Toggle Sound Effects" title="Toggle Sound">
+          <svg class="sound-icon sound-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+          <svg class="sound-icon sound-off hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+          <span class="sound-label">Sound</span>
+        </button>
+
+        <!-- Total session points badge -->
+        <div class="header-score-badge" title="Total Points Earned in this Session">
+          <svg class="badge-star-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+          <span id="header-total-score">0</span>
+          <span class="score-pts">pts</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Accessibility Live Region for Screen Readers -->
+  <div id="sr-announcements" class="sr-only" aria-live="polite"></div>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main id="main-content">
+    
+    <!-- ========================================================
+         VIEW 1: LANDING & HOME VIEW
+         ======================================================== -->
+    <div id="view-home" class="view-section active">
+      
+      <!-- Hero Section -->
+      <section class="hero-section" aria-labelledby="hero-heading">
+        <div class="hero-container">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <span class="sparkle-icon" aria-hidden="true">✨</span>
+              <span>English Vocabulary Learning Platform</span>
+            </div>
+            <h1 id="hero-heading" class="hero-title">
+              Learn English. <br>
+              <span class="gradient-text">Play. Improve.</span>
+            </h1>
+            <p class="hero-description">
+              Improve your English vocabulary through fun questions, word puzzles, and interactive challenges. Master essential words with friendly instant feedback!
+            </p>
+            <div class="hero-cta-group">
+              <button type="button" id="hero-start-btn" class="btn btn-primary btn-lg pulse-glow">
+                <span>Start Playing</span>
+                <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+              <button type="button" class="btn btn-secondary btn-lg" id="hero-learn-more-btn">
+                <span>How It Works</span>
+              </button>
+            </div>
+            
+            <!-- Quick Feature Tags -->
+            <div class="hero-stats">
+              <div class="stat-item">
+                <span class="stat-number">3</span>
+                <span class="stat-label">Game Modes</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <span class="stat-number">30+</span>
+                <span class="stat-label">Challenges</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Free & Fun</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Illustration / Interactive Cards Preview -->
+          <div class="hero-visual" aria-hidden="true">
+            <div class="floating-tile-card card-preview-main">
+              <div class="floating-header">
+                <span class="preview-badge">Daily Puzzle</span>
+                <span class="preview-score">+10 Pts</span>
+              </div>
+              <div class="word-preview-box">
+                <span class="preview-letter">L</span>
+                <span class="preview-letter">E</span>
+                <span class="preview-letter accent-letter">A</span>
+                <span class="preview-letter">R</span>
+                <span class="preview-letter">N</span>
+              </div>
+              <p class="preview-clue">"To gain knowledge or skill in something."</p>
+              <div class="preview-check-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Correct Answer!</span>
+              </div>
+            </div>
+
+            <!-- Decorative floating badges -->
+            <div class="floating-pill pill-quiz">
+              <span class="pill-icon">💡</span>
+              <span>Quiz Mode</span>
+            </div>
+            <div class="floating-pill pill-letters">
+              <span class="pill-icon">🔤</span>
+              <span>Fill Blanks</span>
+            </div>
+            <div class="floating-pill pill-guess">
+              <span class="pill-icon">🔍</span>
+              <span>Word Riddles</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================
+           GAME SELECTION SECTION
+           ======================================================== -->
+      <section id="game-selection" class="section-games" aria-labelledby="games-section-heading">
+        <div class="container">
+          <div class="section-header text-center">
+            <span class="section-subtitle">Choose Your Adventure</span>
+            <h2 id="games-section-heading" class="section-title">Select a Game Mode</h2>
+            <p class="section-description">
+              Pick one of our three interactive games designed to build your vocabulary, spelling, and reading skills.
+            </p>
+          </div>
+
+          <div class="game-cards-grid">
+            
+            <!-- Game Card 1: Multiple Choice -->
+            <article class="game-card card-quiz">
+              <div class="card-icon-wrapper icon-quiz">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+              </div>
+              <div class="card-tag">Mode 1</div>
+              <h3 class="card-title">Multiple Choice</h3>
+              <p class="card-description">
+                Choose the correct answer and test your English knowledge.
+              </p>
+              <ul class="card-features">
+                <li><span class="bullet-check">✓</span> 10 vocabulary questions</li>
+                <li><span class="bullet-check">✓</span> 3 choices per question (A, B, C)</li>
+                <li><span class="bullet-check">✓</span> Instant feedback & explanations</li>
+              </ul>
+              <button type="button" class="btn btn-card btn-quiz" id="btn-launch-quiz">
+                <span>Play Quiz</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </article>
+
+            <!-- Game Card 2: Complete the Word (Featured) -->
+            <article class="game-card card-complete featured-card">
+              <div class="card-featured-badge">⭐ Star Feature</div>
+              <div class="card-icon-wrapper icon-complete">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                  <line x1="10" y1="7" x2="16" y2="7"></line>
+                  <line x1="10" y1="11" x2="14" y2="11"></line>
+                </svg>
+              </div>
+              <div class="card-tag">Mode 2</div>
+              <h3 class="card-title">Complete the Word</h3>
+              <p class="card-description">
+                Fill in the missing letters and discover the correct word.
+              </p>
+              <ul class="card-features">
+                <li><span class="bullet-check">✓</span> 12 progressive word puzzles</li>
+                <li><span class="bullet-check">✓</span> Helpful hints for every word</li>
+                <li><span class="bullet-check">✓</span> Audio pronunciation playback</li>
+              </ul>
+              <button type="button" class="btn btn-primary btn-card" id="btn-launch-complete">
+                <span>Complete Words</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </article>
+
+            <!-- Game Card 3: Guess the Word -->
+            <article class="game-card card-guess">
+              <div class="card-icon-wrapper icon-guess">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  <line x1="11" y1="8" x2="11" y2="14"></line>
+                  <line x1="8" y1="11" x2="14" y2="11"></line>
+                </svg>
+              </div>
+              <div class="card-tag">Mode 3</div>
+              <h3 class="card-title">Guess the Word</h3>
+              <p class="card-description">
+                Read the clues and guess the hidden word.
+              </p>
+              <ul class="card-features">
+                <li><span class="bullet-check">✓</span> 10 riddle challenges</li>
+                <li><span class="bullet-check">✓</span> 3 attempts per riddle</li>
+                <li><span class="bullet-check">✓</span> Unlockable extra hints</li>
+              </ul>
+              <button type="button" class="btn btn-card btn-guess" id="btn-launch-guess">
+                <span>Guess Now</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================
+           HOW IT WORKS SECTION
+           ======================================================== -->
+      <section id="how-it-works" class="section-how" aria-labelledby="how-heading">
+        <div class="container">
+          <div class="section-header text-center">
+            <span class="section-subtitle">Simple & Effective</span>
+            <h2 id="how-heading" class="section-title">How It Works</h2>
+            <p class="section-description">
+              Three easy steps to enhance your English vocabulary every day.
+            </p>
+          </div>
+
+          <div class="steps-grid">
+            <div class="step-card">
+              <div class="step-badge">1</div>
+              <div class="step-icon">🎯</div>
+              <h3 class="step-title">Choose a Game</h3>
+              <p class="step-description">
+                Pick a mode: choose multiple choice for quick quizzes, complete missing letters for spelling, or guess from clues for deeper reading.
+              </p>
+            </div>
+
+            <div class="step-card">
+              <div class="step-badge">2</div>
+              <div class="step-icon">💡</div>
+              <h3 class="step-title">Solve & Learn</h3>
+              <p class="step-description">
+                Type your answer or select the right option. Instant helpful feedback explains the vocabulary meaning right away.
+              </p>
+            </div>
+
+            <div class="step-card">
+              <div class="step-badge">3</div>
+              <div class="step-icon">🏆</div>
+              <h3 class="step-title">Earn Points & Excel</h3>
+              <p class="step-description">
+                Collect 10 points for every correct word. Review your final results, celebrate your achievements, and play again to improve.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- End of view-home -->
+
+
+    <!-- ========================================================
+         VIEW 2: MULTIPLE CHOICE QUIZ GAME
+         ======================================================== -->
+    <div id="view-quiz" class="view-section" aria-hidden="true">
+      <div class="game-container">
+        
+        <!-- Game Top Bar -->
+        <header class="game-header-bar">
+          <button type="button" class="btn btn-ghost btn-back-home" data-action="return-home">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span>Exit to Menu</span>
+          </button>
+
+          <div class="game-header-info">
+            <span class="game-title-tag">Multiple Choice Quiz</span>
+            <div class="game-progress-text" id="quiz-progress-text">Question 1 of 10</div>
+          </div>
+
+          <div class="game-header-score">
+            <span class="score-label">Quiz Score:</span>
+            <span class="score-value" id="quiz-score-display">0</span>
+            <span class="score-unit">pts</span>
+          </div>
+        </header>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar-track" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" id="quiz-progress-bar">
+          <div class="progress-bar-fill" id="quiz-progress-fill" style="width: 10%;"></div>
+        </div>
+
+        <!-- Quiz Play Area -->
+        <div class="game-main-card" id="quiz-card">
+          <div class="quiz-question-box">
+            <span class="question-number-badge" id="quiz-badge">Question #1</span>
+            <h2 class="quiz-question-text" id="quiz-question-text">Loading question...</h2>
+          </div>
+
+          <!-- Answer options container (3 buttons) -->
+          <fieldset class="quiz-options-group" id="quiz-options-group">
+            <legend class="sr-only">Answer Choices</legend>
+            <button type="button" class="quiz-option-btn" data-option="0" id="quiz-opt-0">
+              <span class="option-letter">A</span>
+              <span class="option-text" id="quiz-opt-text-0">Option A</span>
+              <span class="option-status-icon" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="quiz-option-btn" data-option="1" id="quiz-opt-1">
+              <span class="option-letter">B</span>
+              <span class="option-text" id="quiz-opt-text-1">Option B</span>
+              <span class="option-status-icon" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="quiz-option-btn" data-option="2" id="quiz-opt-2">
+              <span class="option-letter">C</span>
+              <span class="option-text" id="quiz-opt-text-2">Option C</span>
+              <span class="option-status-icon" aria-hidden="true"></span>
+            </button>
+          </fieldset>
+
+          <!-- Feedback notification box -->
+          <div class="feedback-card hidden" id="quiz-feedback-box" role="alert">
+            <div class="feedback-icon" id="quiz-feedback-icon" aria-hidden="true"></div>
+            <div class="feedback-content">
+              <h4 class="feedback-title" id="quiz-feedback-title">Feedback title</h4>
+              <p class="feedback-message" id="quiz-feedback-msg">Explanation message goes here.</p>
+            </div>
+          </div>
+
+          <!-- Action footer -->
+          <div class="game-action-bar">
+            <button type="button" class="btn btn-primary btn-next hidden" id="quiz-next-btn">
+              <span>Next Question</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Quiz Results Screen (Hidden initially) -->
+        <div class="results-card hidden" id="quiz-results-card">
+          <div class="results-header">
+            <div class="results-trophy-wrapper">🏆</div>
+            <h2 class="results-title">Quiz Completed!</h2>
+            <p class="results-encouragement" id="quiz-results-msg">Great job on finishing the quiz!</p>
+          </div>
+
+          <div class="results-stats-grid">
+            <div class="result-stat-box stat-score">
+              <span class="stat-box-num" id="quiz-final-score">0</span>
+              <span class="stat-box-lbl">Total Score</span>
+            </div>
+            <div class="result-stat-box stat-correct">
+              <span class="stat-box-num" id="quiz-final-correct">0</span>
+              <span class="stat-box-lbl">Correct Answers</span>
+            </div>
+            <div class="result-stat-box stat-incorrect">
+              <span class="stat-box-num" id="quiz-final-incorrect">0</span>
+              <span class="stat-box-lbl">Incorrect Answers</span>
+            </div>
+          </div>
+
+          <div class="results-actions">
+            <button type="button" class="btn btn-primary btn-lg" id="quiz-restart-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="1 4 1 10 7 10"></polyline>
+                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+              </svg>
+              <span>Play Again</span>
+            </button>
+            <button type="button" class="btn btn-secondary btn-lg" data-action="return-home">
+              <span>Back to Games</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- End of view-quiz -->
+
+
+    <!-- ========================================================
+         VIEW 3: COMPLETE THE WORD GAME (MAIN FEATURE)
+         ======================================================== -->
+    <div id="view-complete" class="view-section" aria-hidden="true">
+      <div class="game-container">
+        
+        <!-- Game Top Bar -->
+        <header class="game-header-bar">
+          <button type="button" class="btn btn-ghost btn-back-home" data-action="return-home">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span>Exit to Menu</span>
+          </button>
+
+          <div class="game-header-info">
+            <span class="game-title-tag tag-complete">Complete the Word</span>
+            <div class="game-progress-text" id="complete-progress-text">Challenge 1 of 12</div>
+          </div>
+
+          <div class="game-header-score">
+            <span class="score-label">Score:</span>
+            <span class="score-value" id="complete-score-display">0</span>
+            <span class="score-unit">pts</span>
+          </div>
+        </header>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar-track" role="progressbar" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100" id="complete-progress-bar">
+          <div class="progress-bar-fill fill-complete" id="complete-progress-fill" style="width: 8%;"></div>
+        </div>
+
+        <!-- Complete Game Play Area -->
+        <div class="game-main-card card-complete-theme" id="complete-card">
+          
+          <div class="word-challenge-header">
+            <div class="difficulty-indicator">
+              <span class="diff-label" id="complete-category">Category: Everyday</span>
+            </div>
+            <button type="button" class="speak-btn" id="complete-speak-btn" title="Listen to word pronunciation" aria-label="Listen to word pronunciation">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              </svg>
+              <span>Listen</span>
+            </button>
+          </div>
+
+          <!-- Big Letter Tiles Display -->
+          <div class="letter-tiles-container" id="complete-tiles-container" aria-label="Word with missing letters">
+            <!-- Dynamically generated letter tiles: e.g. [B] [_] [O] [K] -->
+          </div>
+
+          <!-- Clue Section -->
+          <div class="clue-box">
+            <div class="clue-label-row">
+              <span class="clue-icon" aria-hidden="true">💡</span>
+              <span class="clue-title">Clue:</span>
+            </div>
+            <p class="clue-text" id="complete-clue-text">You read this at school.</p>
+          </div>
+
+          <!-- Answer Input Form -->
+          <form class="complete-input-form" id="complete-form" novalidate>
+            <div class="input-group">
+              <label for="complete-input" class="sr-only">Type the complete word</label>
+              <input 
+                type="text" 
+                id="complete-input" 
+                class="game-text-input" 
+                placeholder="Type the full word here..." 
+                autocomplete="off" 
+                autocorrect="off" 
+                autocapitalize="characters" 
+                spellcheck="false"
+                maxlength="20"
+                required
+              >
+              <button type="submit" class="btn btn-primary btn-check" id="complete-check-btn">
+                <span>Check Answer</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </button>
+            </div>
+            <span class="input-helper-tip">Press <strong>Enter ↵</strong> or click <strong>Check Answer</strong></span>
+          </form>
+
+          <!-- Feedback Box -->
+          <div class="feedback-card hidden" id="complete-feedback-box" role="alert">
+            <div class="feedback-icon" id="complete-feedback-icon" aria-hidden="true"></div>
+            <div class="feedback-content">
+              <h4 class="feedback-title" id="complete-feedback-title">Correct!</h4>
+              <p class="feedback-message" id="complete-feedback-msg">BOOK - You read this at school.</p>
+            </div>
+          </div>
+
+          <!-- Next Action Button -->
+          <div class="game-action-bar">
+            <button type="button" class="btn btn-primary btn-next hidden" id="complete-next-btn">
+              <span>Next Word</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Complete Results Screen -->
+        <div class="results-card hidden" id="complete-results-card">
+          <div class="results-header">
+            <div class="results-trophy-wrapper">🌟</div>
+            <h2 class="results-title">Word Master!</h2>
+            <p class="results-encouragement" id="complete-results-msg">You completed all the word challenges!</p>
+          </div>
+
+          <div class="results-stats-grid">
+            <div class="result-stat-box stat-score">
+              <span class="stat-box-num" id="complete-final-score">0</span>
+              <span class="stat-box-lbl">Total Score</span>
+            </div>
+            <div class="result-stat-box stat-correct">
+              <span class="stat-box-num" id="complete-final-correct">0</span>
+              <span class="stat-box-lbl">Words Solved</span>
+            </div>
+            <div class="result-stat-box stat-incorrect">
+              <span class="stat-box-num" id="complete-final-incorrect">0</span>
+              <span class="stat-box-lbl">Missed Words</span>
+            </div>
+          </div>
+
+          <div class="results-actions">
+            <button type="button" class="btn btn-primary btn-lg" id="complete-restart-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="1 4 1 10 7 10"></polyline>
+                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+              </svg>
+              <span>Play Again</span>
+            </button>
+            <button type="button" class="btn btn-secondary btn-lg" data-action="return-home">
+              <span>Back to Games</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- End of view-complete -->
+
+
+    <!-- ========================================================
+         VIEW 4: GUESS THE WORD GAME
+         ======================================================== -->
+    <div id="view-guess" class="view-section" aria-hidden="true">
+      <div class="game-container">
+        
+        <!-- Game Top Bar -->
+        <header class="game-header-bar">
+          <button type="button" class="btn btn-ghost btn-back-home" data-action="return-home">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span>Exit to Menu</span>
+          </button>
+
+          <div class="game-header-info">
+            <span class="game-title-tag tag-guess">Guess the Word</span>
+            <div class="game-progress-text" id="guess-progress-text">Challenge 1 of 10</div>
+          </div>
+
+          <div class="game-header-score">
+            <span class="score-label">Score:</span>
+            <span class="score-value" id="guess-score-display">0</span>
+            <span class="score-unit">pts</span>
+          </div>
+        </header>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar-track" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" id="guess-progress-bar">
+          <div class="progress-bar-fill fill-guess" id="guess-progress-fill" style="width: 10%;"></div>
+        </div>
+
+        <!-- Guess Game Play Area -->
+        <div class="game-main-card card-guess-theme" id="guess-card">
+          
+          <div class="guess-status-header">
+            <!-- Attempts Counter Indicator -->
+            <div class="attempts-indicator" aria-label="Attempts remaining">
+              <span class="attempts-label">Attempts left:</span>
+              <div class="attempts-pips" id="guess-attempts-pips">
+                <span class="attempt-pip active" title="Attempt 1"></span>
+                <span class="attempt-pip active" title="Attempt 2"></span>
+                <span class="attempt-pip active" title="Attempt 3"></span>
+              </div>
+            </div>
+
+            <!-- Optional Extra Hint Toggle -->
+            <button type="button" class="btn btn-sm btn-hint" id="guess-hint-btn">
+              <span class="hint-btn-icon">💡</span>
+              <span id="guess-hint-btn-text">Need a Hint?</span>
+            </button>
+          </div>
+
+          <!-- Main Clue Box -->
+          <div class="riddle-box">
+            <div class="riddle-badge">Riddle Clue</div>
+            <p class="riddle-text" id="guess-clue-text">
+              "I am an animal. I have four legs, and I can bark."
+            </p>
+            
+            <!-- Extra Hint Reveal Box -->
+            <div class="hint-reveal-box hidden" id="guess-hint-box" role="status">
+              <span class="hint-reveal-icon">🔎</span>
+              <span class="hint-reveal-label">Helpful Hint:</span>
+              <span class="hint-reveal-text" id="guess-hint-text">First letter is D. Length: 3 letters.</span>
+            </div>
+          </div>
+
+          <!-- Answer Input Form -->
+          <form class="guess-input-form" id="guess-form" novalidate>
+            <div class="input-group">
+              <label for="guess-input" class="sr-only">Type your guess</label>
+              <input 
+                type="text" 
+                id="guess-input" 
+                class="game-text-input" 
+                placeholder="What is the word? Type here..." 
+                autocomplete="off" 
+                autocorrect="off" 
+                autocapitalize="characters" 
+                spellcheck="false"
+                maxlength="20"
+                required
+              >
+              <button type="submit" class="btn btn-primary btn-submit-guess" id="guess-submit-btn">
+                <span>Submit Answer</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </button>
+            </div>
+            <span class="input-helper-tip">Press <strong>Enter ↵</strong> or click <strong>Submit Answer</strong></span>
+          </form>
+
+          <!-- Feedback Box -->
+          <div class="feedback-card hidden" id="guess-feedback-box" role="alert">
+            <div class="feedback-icon" id="guess-feedback-icon" aria-hidden="true"></div>
+            <div class="feedback-content">
+              <h4 class="feedback-title" id="guess-feedback-title">Feedback Title</h4>
+              <p class="feedback-message" id="guess-feedback-msg">Feedback details.</p>
+            </div>
+          </div>
+
+          <!-- Next Button -->
+          <div class="game-action-bar">
+            <button type="button" class="btn btn-primary btn-next hidden" id="guess-next-btn">
+              <span>Next Challenge</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Guess Results Screen -->
+        <div class="results-card hidden" id="guess-results-card">
+          <div class="results-header">
+            <div class="results-trophy-wrapper">🎉</div>
+            <h2 class="results-title">Game Finished!</h2>
+            <p class="results-encouragement" id="guess-results-msg">Awesome effort solving the riddles!</p>
+          </div>
+
+          <div class="results-stats-grid">
+            <div class="result-stat-box stat-score">
+              <span class="stat-box-num" id="guess-final-score">0</span>
+              <span class="stat-box-lbl">Total Score</span>
+            </div>
+            <div class="result-stat-box stat-correct">
+              <span class="stat-box-num" id="guess-final-correct">0</span>
+              <span class="stat-box-lbl">Riddles Guessed</span>
+            </div>
+            <div class="result-stat-box stat-incorrect">
+              <span class="stat-box-num" id="guess-final-incorrect">0</span>
+              <span class="stat-box-lbl">Riddles Missed</span>
+            </div>
+          </div>
+
+          <div class="results-actions">
+            <button type="button" class="btn btn-primary btn-lg" id="guess-restart-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="1 4 1 10 7 10"></polyline>
+                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+              </svg>
+              <span>Play Again</span>
+            </button>
+            <button type="button" class="btn btn-secondary btn-lg" data-action="return-home">
+              <span>Back to Games</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- End of view-guess -->
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon small" aria-hidden="true">
+            <span class="logo-letter">W</span>
+          </div>
+          <span class="logo-title">Complete<span class="logo-accent">TheWord</span></span>
+        </div>
+        <p class="footer-tagline">
+          An interactive English-learning platform designed to help beginners master essential vocabulary through engaging educational games.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h4 class="footer-heading">Game Modes</h4>
+        <ul>
+          <li><button type="button" class="footer-link-btn" data-launch="quiz">Multiple Choice Quiz</button></li>
+          <li><button type="button" class="footer-link-btn" data-launch="complete">Complete the Word</button></li>
+          <li><button type="button" class="footer-link-btn" data-launch="guess">Guess the Word</button></li>
+        </ul>
+      </div>
+
+      <div class="footer-note">
+        <h4 class="footer-heading">About This Project</h4>
+        <p>Built with modern HTML5, CSS3, and Vanilla JavaScript. Suitable for educational demonstrations and English language oral presentations.</p>
+        <p class="copyright-line">&copy; Complete the Word. Learn English. Play. Improve.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
